@@ -9,7 +9,7 @@ class WordleWord:
 
     def __init__(self, word):
         if len(word) != WordleWord.word_length:
-            raise InvalidWordLengthError
+            raise InvalidWordLengthError(word)
 
         self.word = word.upper()
 

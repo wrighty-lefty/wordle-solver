@@ -1,5 +1,5 @@
 import unittest
-from WordleWord import WordleWord
+from WordleWord import *
 
 class TestWordleWord(unittest.TestCase):
     WordleWord.initialize(5)
