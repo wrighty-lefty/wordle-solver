@@ -3,7 +3,7 @@ from enum import Enum
 from random import randint
 
 wordle_config = None
-with open("Wordle/data/config.json", "r") as fh:
+with open("data/config.json", "r") as fh:
     wordle_config = json.load(fh)
 wordle_config["correct_word_score"] = (3 ** wordle_config["word_length"]) - 1
 
