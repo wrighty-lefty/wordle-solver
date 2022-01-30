@@ -1,7 +1,7 @@
 {
   "word_length": 5,
   "hard_mode": false,
-  "all_words": "all_words.txt",
+  "guessable_words": "guessable_words.txt",
   "solution_words": "solution_words.txt",
   "is_solution_list_known": true
 }

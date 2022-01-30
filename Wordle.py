@@ -1,4 +1,5 @@
 import json
+import os
 from enum import Enum
 from random import randint
 
@@ -73,15 +74,28 @@ class WordList:
     def __contains__(self, item):
         return item in self.word_set
 
+    def __iter__(self):
+        self.iter_index = 0
+        return self
+
+    def __next__(self):
+        if self.iter_index < len(self.word_list):
+            word = self.word_list[self.iter_index]
+            self.iter_index += 1
+            return word
+        else:
+            raise StopIteration
+
     def load_from_file(self, source_file):
         self.word_list = list()
-        file_handle = open(wordle_config[source_file], "r")
-        for line in file_handle:
+        file_path = os.path.join("data", wordle_config[source_file])
+        fh = open(file_path, "r")
+        for line in fh:
             word = line.rstrip()
             if len(word) == 0:
                 break
             self.word_list.append(word)
-        file_handle.close()
+        fh.close()
 
     def select_wordle_word(self):
         index = randint(0, len(self.word_list) - 1)
